@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "CaesarCipher.extended"
+version = "2.9"
+description = "Implementation of the Caesar Cipher encryption algorithm in Python. Unlike the classic, it also shifts numbers, symbols & even emojis! Focused on simplicity and Efficiency."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "ViratiAkiraNandhanReddy", email = "viratiaki53@gmail.com"}
+]
+requires-python = ">=3.11"
+keywords = ["Caesar Cipher", "encryption", "decryption", "cryptography", "Python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://viratiakiranandhanreddy.github.io/CaesarCipher.extended/"
+"Repository" = "https://github.com/ViratiAkiraNandhanReddy/CaesarCipher.extended"
+"Issues" = "https://github.com/ViratiAkiraNandhanReddy/CaesarCipher.extended/issues"
