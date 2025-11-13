@@ -88,7 +88,7 @@ class Encryption:
     ### Developed by [ViratiAkiraNandhanReddy](https://github.com/ViratiAkiraNandhanReddy)
     '''
 
-    def __init__(self, text: str, shift: int = 3, alterSymbols: bool = False, alterNumbers: bool = False):
+    def __init__(self, text: str = '', shift: int = 3, alterSymbols: bool = False, alterNumbers: bool = False):
 
         if not isinstance(text, str):
             raise TypeError("text must be a string")
@@ -137,3 +137,49 @@ class Encryption:
                 EncryptedText.append(char)
 
         return ''.join(EncryptedText)
+    
+    def encrypt_file(self, _filePath: str) -> bool:
+        """
+        # encrypt_file
+
+        > Encrypt the contents of a file in-place using this instance's
+        `encrypt()` method.
+
+        ## <ins>*Purpose*</ins>
+        - Read the file at `_filePath`, replace its contents with the
+          encrypted text produced by `self.encrypt()`, and return a boolean
+          indicating success.
+
+        ## <ins>*Parameters*</ins>
+        - `_filePath` (`str`): Path to the file to be encrypted. The file is
+          opened in text mode using the environment's default encoding.
+
+        ## <ins>*Returns*</ins>
+        - `bool`: `True` when the file was successfully overwritten with the
+          encrypted content. Returns `False` when the file cannot be found or
+          when permission is denied.
+
+        ## <ins>*Notes*</ins>
+        - This performs an in-place overwrite of the file.
+        - `FileNotFoundError` and `PermissionError` are caught and result in
+          a `False` return value; other exceptions will propagate.
+
+        ## <ins>*Example*</ins>
+        ```python
+        enc = Encryption('', shift = 4)
+        success = enc.encrypt_file('message.txt')
+        if success:
+            print('File encrypted')
+        else:
+            print('Failed to encrypt file')
+        ```
+        """
+
+        try:
+            with open(_filePath, 'r', encoding='utf-8') as read:
+                self.text = read.read()
+            with open(_filePath, 'w', encoding='utf-8') as write:
+                write.write(self.encrypt())
+            return True
+        except (FileNotFoundError, PermissionError):
+            return False

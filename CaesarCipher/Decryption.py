@@ -83,7 +83,7 @@ class Decryption:
     ### Developed by [ViratiAkiraNandhanReddy](https://github.com/ViratiAkiraNandhanReddy)
     '''
 
-    def __init__(self, text: str, shift = 3, isSymbolsAltered = False, isNumbersAltered = False):
+    def __init__(self, text: str = '', shift = 3, isSymbolsAltered = False, isNumbersAltered = False):
         
         if not isinstance(text, str):
             raise TypeError("text must be a string")
@@ -132,3 +132,49 @@ class Decryption:
                 DecryptedText.append(char)
 
         return ''.join(DecryptedText)
+    
+    def decrypt_file(self, _filePath: str) -> bool:
+        """
+        # decrypt_file
+
+        > Decrypt the contents of a file in-place using this instance's
+        `decrypt()` method.
+
+        ## <ins>*Purpose*</ins>
+        - Read the file at `_filePath`, replace its contents with the
+          decrypted text produced by `self.decrypt()`, and return a
+          boolean indicating success.
+
+        ## <ins>*Parameters*</ins>
+        - `_filePath` (`str`): Path to the file to be decrypted. The file is
+          opened in text mode using the environment's default encoding.
+
+        ## <ins>*Returns*</ins>
+        - `bool`: `True` when the file was successfully overwritten with the
+          decrypted content. Returns `False` when the file cannot be found or
+          when permission is denied.
+
+        ## <ins>*Notes*</ins>
+        - This performs an in-place overwrite of the file.
+        - `FileNotFoundError` and `PermissionError` are caught and result in
+          a `False` return value; other exceptions will propagate.
+
+        ## <ins>*Example*<ins>
+        ```python
+        dec = Decryption('', shift = 4)
+        success = dec.decrypt_file('message.txt')
+        if success:
+            print('File decrypted')
+        else:
+            print('Failed to decrypt file')
+        ```
+        """
+
+        try:
+            with open(_filePath, 'r', encoding='utf-8') as read:
+                self.text = read.read()
+            with open(_filePath, 'w', encoding='utf-8') as write:
+                write.write(self.decrypt())
+            return True
+        except (FileNotFoundError, PermissionError):
+            return False
