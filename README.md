@@ -3,7 +3,9 @@
 		<img src="https://img.shields.io/github/license/ViratiAkiraNandhanReddy/CaesarCipher.extended" alt="License" />
 		<!-- <img src="https://img.shields.io/github/actions/workflow/status/ViratiAkiraNandhanReddy/CaesarCipher.extended/python-app.yml?label=build" alt="Build Status" /> -->
 		<img src="https://img.shields.io/github/actions/workflow/status/ViratiAkiraNandhanReddy/CaesarCipher.extended/tests.yml?label=tests" alt="Test Status" />
+	    <img src="https://static.pepy.tech/personalized-badge/caesarcipher-extended?period=total&units=INTERNATIONAL_SYSTEM&left_color=LIGHTGREY&right_color=GREEN&left_text=Total%20Downloads" alt="Total Downloads" />
 		<img src="https://img.shields.io/pypi/dm/CaesarCipher.extended" alt="PyPI Downloads" />
+	    <img src="https://api.visitorbadge.io/api/visitors?path=ViratiAkiraNandhanReddy/CaesarCipher.extended&label=Repository%20Visits&style=flat" alt="Repository Visits" />
 		<!-- <img src="https://img.shields.io/github/last-commit/ViratiAkiraNandhanReddy/CaesarCipher.extended" alt="Last Commit" /> -->
 		<img src="https://img.shields.io/github/issues/ViratiAkiraNandhanReddy/CaesarCipher.extended" alt="Issues" />
 		<img src="https://img.shields.io/github/stars/ViratiAkiraNandhanReddy/CaesarCipher.extended?style=social" alt="Stars" />
@@ -89,6 +91,36 @@ print("Decrypted:", dec.decrypt())
 
 ---
 
+### File-based Encryption / Decryption
+
+You can encrypt or decrypt files in-place using `encrypt_file()` and
+`decrypt_file()` on the corresponding class instances. Both methods read
+the file contents, replace the file with the transformed text, and return
+a boolean indicating success.
+
+```python
+from CaesarCipher import Encryption, Decryption
+
+# Encrypt a file in-place
+enc = Encryption(shift = 4, alterNumbers = True, alterSymbols = True)
+ok = enc.encrypt_file('secrets.txt')
+if ok:
+		print('File encrypted')
+
+# Decrypt a file in-place
+dec = Decryption(shift = 4, isNumbersAltered = True, isSymbolsAltered = True)
+ok = dec.decrypt_file('secrets.txt')
+if ok:
+		print('File decrypted')
+```
+
+Notes:
+- These methods return `False` when the file does not exist or when the
+	process lacks permission to read/write the file. Other errors will
+	propagate.
+
+---
+
 ## 📚 API Reference
 
 ### Encryption
@@ -169,7 +201,7 @@ You can customize the shift and choose to include digits and symbols for even mo
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ViratiAkiraNandhanReddy)
 [![Website](https://img.shields.io/badge/Website-0077b6?style=for-the-badge&logoColor=white)](https://viratiakiranandhanreddy.github.io/CaesarCipher.extended/)
 [![PyPI](https://img.shields.io/badge/PyPI-3775A9?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/CaesarCipher.extended/)
-[![Mail](https://img.shields.io/badge/Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:viratiaki53@gmail.com)
+[![Mail](https://img.shields.io/badge/Mail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact.viratiakiranandhanreddy+python@gmail.com)
 
 ---
 

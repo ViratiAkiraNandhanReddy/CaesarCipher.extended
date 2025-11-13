@@ -81,6 +81,30 @@ dec2 = Decryption("Xjhwjy678!", shift = 5, isNumbersAltered = True, isSymbolsAlt
 print(dec2.decrypt())
 ```
 
+### <ins>***File-based encryption / decryption***</ins>
+
+Both classes provide convenience methods for operating on files:
+
+- `Encryption.encrypt_file(_filePath: str) -> bool` — reads the file at
+	`_filePath`, replaces its contents with the encrypted text and returns
+	`True` on success or `False` if the file is missing or inaccessible.
+
+- `Decryption.decrypt_file(_filePath: str) -> bool` — reads the file at
+	`_filePath`, replaces its contents with the decrypted text and returns
+	`True` on success or `False` if the file is missing or inaccessible.
+
+Example:
+
+```python
+from CaesarCipher import Encryption, Decryption
+
+enc = Encryption(shift = 5, alterNumbers = True)
+enc.encrypt_file('message.txt')
+
+dec = Decryption(shift = 5, isNumbersAltered = True)
+dec.decrypt_file('message.txt')
+```
+
 ## <ins>*API Reference*</ins>
 
 ### <ins>***Encryption Class Details***</ins>
@@ -139,7 +163,7 @@ For production systems, especially those handling passwords or highly sensitive 
 #### LinkedIn: [viratiakiranandhanreddy](https://linkedin.com/in/viratiakiranandhanreddy/)
 #### X (Twitter): [Viratiaki53](https://x.com/Viratiaki53)
 #### Instagram: [viratiaki53](https://instagram.com/viratiaki53/)
-#### Gmail: viratiaki@gmail.com
+#### Gmail: contact.viratiakiranandhanreddy+python@gmail.com
 
 > ***If you have any questions, suggestions, or want to contribute, feel free to reach out via GitHub!***
 
@@ -155,6 +179,6 @@ from .Encryption import Encryption
 from .Decryption import Decryption
 
 __all__ = ['Encryption', 'Decryption']
-__version__ = '2.9'
+__version__ = '2.9.1'
 __author__ = 'ViratiAkiraNandhanReddy'
 __license__ = 'GNU GENERAL PUBLIC LICENSE'
