@@ -106,13 +106,13 @@ from CaesarCipher import Encryption, Decryption
 enc = Encryption(shift = 4, alterNumbers = True, alterSymbols = True)
 ok = enc.encrypt_file('secrets.txt')
 if ok:
-		print('File encrypted')
+	print('File encrypted')
 
 # Decrypt a file in-place
 dec = Decryption(shift = 4, isNumbersAltered = True, isSymbolsAltered = True)
 ok = dec.decrypt_file('secrets.txt')
 if ok:
-		print('File decrypted')
+	print('File decrypted')
 ```
 
 Notes:
